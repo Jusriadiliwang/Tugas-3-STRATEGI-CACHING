@@ -1,0 +1,18 @@
+{
+  "name": "apotek-sehatcare-online",
+  "version": "1.0.0",
+  "description": "Aplikasi apotek online dengan pengujian caching, invalidation, eviction, dan static CDN cache",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

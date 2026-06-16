@@ -1,0 +1,6 @@
+{
+  "nama_file": "cdn-demo-data.json",
+  "jenis": "static asset",
+  "fungsi": "contoh file ringan yang dapat disimpan oleh browser atau CDN",
+  "cache_duration": "1 jam"
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SehatCare Online</title>
+  <link rel="stylesheet" href="/static/style.css?v=300" />
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-box">
+        <img src="/static/assets/apotek-icon.svg" alt="SehatCare" class="brand-logo">
+        <h1>SehatCare</h1>
+        <p>Apotek Online</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#katalog">Katalog Obat</a>
+        <a href="#admin">Admin Stok</a>
+        <a href="#cdn">CDN & Aset Statis</a>
+        <a href="#aktivitas">Aktivitas</a>
+      </nav>
+
+      <div class="server-status">
+        <span class="dot"></span>
+        <div>
+          <b>Server Aktif</b>
+          <small>localhost:3000</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="beranda" class="hero-card">
+        <div>
+          <span class="eyebrow">LAYANAN APOTEK DIGITAL</span>
+          <h2>Pengelolaan katalog dan stok obat lebih cepat.</h2>
+          <p>
+            Aplikasi ini menampilkan katalog obat, pencarian, pembaruan stok,
+            dan optimasi akses data menggunakan cache.
+          </p>
+
+          <div class="hero-actions">
+            <button id="btnHeroCatalog">Buka Katalog</button>
+            <button id="btnHeroPopular">Obat Populer</button>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <img src="/static/assets/apotek-icon.svg" alt="Apotek" />
+          <h3>SehatCare</h3>
+          <p>Status layanan <b>aktif</b></p>
+          <small>Simulasi aplikasi apotek berbasis cache</small>
+        </div>
+      </section>
+
+      <section class="status-grid">
+        <div class="status-card">
+          <span>Strategi Akses</span>
+          <strong id="summaryStrategy">-</strong>
+        </div>
+        <div class="status-card">
+          <span>Status Data</span>
+          <strong id="summaryStatus">-</strong>
+        </div>
+        <div class="status-card">
+          <span>Sumber Data</span>
+          <strong id="summarySource">-</strong>
+        </div>
+        <div class="status-card">
+          <span>Waktu Respons</span>
+          <strong id="summaryTime">-</strong>
+        </div>
+      </section>
+
+      <section id="katalog" class="content-card">
+        <div class="section-header">
+          <div>
+            <h2>Katalog Obat</h2>
+            <p>Daftar obat yang tersedia untuk pelanggan.</p>
+          </div>
+
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari obat atau kategori...">
+            <button id="btnSearch">Cari</button>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="btnLoadCatalog">Buka Katalog</button>
+          <button id="btnNoCache">Akses Database Langsung</button>
+        </div>
+
+        <div id="catalogContainer" class="product-grid">
+          <div class="empty-state">
+            Klik tombol <b>Buka Katalog</b> untuk menampilkan data obat.
+          </div>
+        </div>
+      </section>
+
+      <section class="two-column">
+        <div id="admin" class="content-card">
+          <h2>Panel Admin Stok</h2>
+          <p>
+            Gunakan bagian ini untuk memperbarui stok obat. Setelah stok berubah,
+            data sementara dibersihkan agar pelanggan melihat stok terbaru.
+          </p>
+
+          <div class="form-grid">
+            <label>
+              ID Obat
+              <input type="number" id="stockId" value="1">
+            </label>
+            <label>
+              Stok Baru
+              <input type="number" id="stockValue" value="40">
+            </label>
+          </div>
+
+          <button id="btnUpdateStock">Simpan Perubahan Stok</button>
+          <div id="adminResult" class="mini-result">Belum ada perubahan stok.</div>
+        </div>
+
+        <div class="content-card">
+          <h2>Informasi Teknis Sistem</h2>
+          <p>Bagian ini digunakan untuk menjelaskan proses caching saat presentasi.</p>
+
+          <div class="button-row">
+            <button id="btnNoCacheTech">Akses Database Langsung</button>
+            <button id="btnCacheInfo">Lihat Status Cache</button>
+            <button id="btnClearCache">Bersihkan Cache</button>
+            <button id="btnEviction">Info Eviction / TTL</button>
+          </div>
+
+          <div id="techResult" class="mini-result">Status teknis akan muncul di sini.</div>
+        </div>
+      </section>
+
+      <section id="cdn" class="two-column">
+        <div class="content-card">
+          <h2>Pengujian File Statis</h2>
+          <p>
+            Bagian ini digunakan untuk menguji file pendukung aplikasi seperti logo,
+            CSS, JavaScript, dan data ringan. File seperti ini biasanya disimpan
+            sementara oleh browser atau CDN agar halaman lebih cepat dibuka.
+          </p>
+
+          <div class="asset-preview">
+            <img src="/static/assets/apotek-icon.svg" alt="Logo SehatCare">
+            <div>
+              <h3>File yang Diuji</h3>
+              <div class="asset-list">
+                <div class="asset-item">
+                  <span class="asset-label">Logo Aplikasi</span>
+                  <span class="asset-path">Digunakan untuk tampilan aplikasi</span>
+                </div>
+                <div class="asset-item">
+                  <span class="asset-label">File CSS</span>
+                  <span class="asset-path">Mengatur desain halaman</span>
+                </div>
+                <div class="asset-item">
+                  <span class="asset-label">File JavaScript</span>
+                  <span class="asset-path">Mengatur tombol dan interaksi aplikasi</span>
+                </div>
+                <div class="asset-item">
+                  <span class="asset-label">Data Ringan</span>
+                  <span class="asset-path">Digunakan untuk simulasi file statis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h2>Uji Cache File</h2>
+          <p>
+            Klik tombol di bawah untuk membuktikan bahwa file pendukung dapat dimuat
+            dan disimpan sementara. Pada aplikasi nyata, proses ini membantu halaman
+            terbuka lebih cepat.
+          </p>
+
+          <div class="button-row">
+            <button id="btnCdnCheck">Cek Cache File</button>
+            <button id="btnStaticFile">Muat File Pendukung</button>
+          </div>
+
+          <div id="cdnResult" class="mini-result">Hasil pengujian file statis akan muncul di sini.</div>
+        </div>
+      </section>
+
+      <section id="aktivitas" class="two-column">
+        <div class="content-card">
+          <h2>Riwayat Aktivitas</h2>
+          <div id="activityLog" class="activity-box">
+            <div>Belum ada aktivitas.</div>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h2>Alur Sistem</h2>
+          <ol class="system-flow">
+            <li>Pelanggan membuka katalog obat.</li>
+            <li>Sistem mengecek apakah katalog sudah tersimpan sementara.</li>
+            <li>Jika belum ada, data diambil dari database utama.</li>
+            <li>Data katalog disimpan sementara untuk mempercepat akses berikutnya.</li>
+            <li>Jika admin mengubah stok, data sementara dibersihkan agar stok tetap akurat.</li>
+            <li>File statis seperti CSS, JavaScript, dan gambar dapat disimpan melalui cache/CDN.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js?v=300"></script>
+</body>
+</html>
